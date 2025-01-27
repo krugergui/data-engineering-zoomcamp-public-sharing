@@ -41,7 +41,7 @@ def download_file(url, output_file):
 
 
 def data_tranformation(df):
-    # Dates are strings, convert them to datetime
+    # Dates are read as strings, convert them to datetime
     df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
     df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
     return df
@@ -75,6 +75,7 @@ def main():
 
     with conn.connect() as con:
         con.execute(sqlalchemy.text("DROP TABLE IF EXISTS yellow_taxi_data"))
+        con.commit()
 
     with open(taxi_file_path, "rb") as f:
         total_chunks = sum(1 for _ in f) // chunk_size

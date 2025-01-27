@@ -1,0 +1,12 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "NY taxi",
+			"Group": "datatalk-de",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "postgres",
+            "MaintenanceDB": "postgres"
+        }
+	}
+}

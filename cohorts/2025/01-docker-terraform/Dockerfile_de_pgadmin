@@ -1,0 +1,4 @@
+FROM dpage/pgadmin4:latest
+
+COPY ./servers.json /pgadmin4/
+COPY ./sql_queries/* /var/lib/pgadmin/storage/pgadmin_pgadmin.com/

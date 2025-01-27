@@ -15,7 +15,7 @@ services:
 
   pgadmin:
     container_name: pgadmin
-    image: dpage/pgadmin4:latest
+    image: pgadmin_homework_1
     environment:
       PGADMIN_DEFAULT_EMAIL: "pgadmin@pgadmin.com"
       PGADMIN_DEFAULT_PASSWORD: "pgadmin"
@@ -32,6 +32,8 @@ services:
     networks:
       - db-network
     pull_policy: never
+    volumes:
+      - ./taxi_data:/taxi_data
     depends_on:
       - db
 
@@ -40,6 +42,8 @@ volumes:
     name: vol-pgdata
   vol-pgadmin_data:
     name: vol-pgadmin_data
+  vol-taxi_data:
+    name: vol-taxi_data
 
 networks:
   db-network:
