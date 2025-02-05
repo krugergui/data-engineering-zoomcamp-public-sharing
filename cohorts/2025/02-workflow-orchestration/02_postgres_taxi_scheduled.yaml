@@ -35,8 +35,7 @@ tasks:
       type: io.kestra.plugin.core.runner.Process
     commands:
       - wget -qO- https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{{inputs.taxi}}/{{render(vars.file)}}.gz | gunzip > {{render(vars.file)}}
-      - ls -l {{render(vars.file}} | awk '/d|-/{printf("Size of file %s:%.1fMB\n",$9,$5/(1024*1024))}'
-
+      - ls -l | awk '/d|-/{printf("Size of file %s:%.1fMB\n",$9,$5/(1024*1024))}'
 
   - id: if_yellow_taxi
     type: io.kestra.plugin.core.flow.If
@@ -259,7 +258,7 @@ tasks:
 pluginDefaults:
   - type: io.kestra.plugin.jdbc.postgresql
     values:
-      url: jdbc:postgresql://host.docker.internal:5432/postgres
+      url: jdbc:postgresql://postgres:5432/postgres-zoomcamp
       username: kestra
       password: k3str4
 
