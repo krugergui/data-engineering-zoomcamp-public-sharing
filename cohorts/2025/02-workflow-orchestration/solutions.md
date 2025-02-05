@@ -2,7 +2,7 @@ Here's how to arrive in all the solutions using these files:
 
 1. `docker-compose up` to start the containers
 2. `psql -U kestra -d postgres -h localhost -f create_zoomcamp_db.sql` to create the database (use the password `k3str4`)
-3. `curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/02_postgres_taxi_scheduled.yaml` to import the flow
+3. `curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@02_postgres_taxi_scheduled.yaml` to import the flow
 4. Open the kestra UI at http://localhost:8080
 5. Open flows, select the flow you just imported
 6. On the top bar select "Triggers" and for each trigger, click the "Backfill executions" button
